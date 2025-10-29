@@ -1,0 +1,57 @@
+---
+import TechIcon from './TechIcon.astro';
+const heroTechs = [
+  "Laravel",
+  "NestJS",
+  "AdonisJS",
+  "AWS",
+  "DigitalOcean",
+  "Cloudflare",
+  "Angular",
+  "Astro",
+  "Shopify",
+  "MySQL"
+];
+---
+<section class="hero card" id="home">
+  <div>
+    <div class="badge">Open to Work</div>
+    <h1 class="hero-title">Edson Emith González</h1>
+    <h2 style="margin:6px 0 18px 0;color:var(--muted);font-weight:600">
+      Fullstack Developer
+    </h2>
+    <p class="tagline">
+      Construyo soluciones escalables y automatizadas para empresas: APIs limpias, integraciones (WhatsApp, OpenAI, Stripe), plataformas B2B y sistemas POS.
+    </p>
+
+    <div class="hero-techs" aria-hidden="false">
+      {heroTechs.map((t, i) => (
+        <div class="tech-bubble" title={t} style={`animation-delay:${i * 80}ms`}>
+          <TechIcon name={t} />
+          <span class="tech-label">{t}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="cta-row">
+      <a class="icon-btn" href="#projects">Ver proyectos</a>
+      <a class="icon-btn" href="mailto:edsonalgarate@gmail.com">Contactarme</a>
+    </div>
+
+    <div style="margin-top:18px">
+      <small style="color:var(--muted)">Torreón, Coahuila · Disponible para trabajo remoto / híbrido</small>
+    </div>
+  </div>
+
+  <div class="center">
+    <img
+      src="/bannerEdsonEmith.png"
+      srcset="/bannerEdsonEmith.png 600w, /bannerEdsonEmith@2x.png 1200w"
+      sizes="(max-width:900px) 100vw, 360px"
+      loading="lazy"
+      width="360"
+      alt="Banner Edson Emith González"
+      style="width:100%; border-radius:10px; box-shadow:0 12px 40px rgba(0,216,255,0.06)"
+    />
+  </div>
+</section>

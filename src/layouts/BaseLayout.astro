@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+const { title = "Edson Emith González" } = Astro.props;
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content="Portfolio - Edson Emith González — Fullstack Developer" />
+    <link rel="icon" href="/favicons/favicon.ico" />
+  </head>
+  <body>
+    <main class="container">
+      <slot />
+      <footer>
+        © {new Date().getFullYear()} Edson Emith González · Fullstack Developer · Torreón, México
+      </footer>
+    </main>
+    <script>
+      // Theme toggle: respects system preference and persists choice
+      (function(){
+        try {
+          const root = document.documentElement;
+          const toggle = document.getElementById('theme-toggle');
+          const stored = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const current = stored || (prefersDark ? 'dark' : 'light');
+          root.setAttribute('data-theme', current);
+          if(toggle){
+            toggle.setAttribute('aria-pressed', (current === 'dark').toString());
+            toggle.textContent = current === 'dark' ? '🌙' : '☀️';
+            toggle.addEventListener('click', function(){
+              const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+              root.setAttribute('data-theme', next);
+              localStorage.setItem('theme', next);
+              toggle.setAttribute('aria-pressed', (next === 'dark').toString());
+              toggle.textContent = next === 'dark' ? '🌙' : '☀️';
+            });
+          }
+        } catch(e){ console.error(e) }
+      })();
+    </script>
+  </body>
+</html>

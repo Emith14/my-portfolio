@@ -1,0 +1,56 @@
+---
+const projects = [
+  {
+    title: "Chatbots Inteligentes (Solvex)",
+    desc: "Desarrollo de chatbots automatizados con WhatsApp Business API y OpenAI para hoteles y retailers (Hotel San Ignacio Inn, Construrama). Atención 24/7, reservas y cotizaciones.",
+    tech: ["JavaScript", "Node.js", "Meta API", "OpenAI", "DigitalOcean"]
+  },
+  {
+    title: "Vonka360 - Plataforma B2B",
+    desc: "Plataforma B2B desde cero para pedidos, productos y clientes. Flujo de pedidos 100% digitalizado y administración centralizada.",
+    tech: ["Laravel", "Angular", "MySQL", "Hostinger", "Cloudflare"]
+  },
+  {
+    title: "Block Bristol - Punto de Venta (POS)",
+    desc: "Sistema integral POS para gestión de productos, pedidos, clientes y ventas en tiempo real.",
+    tech: ["Laravel", "Angular", "MySQL", "Hostinger", "Cloudflare"]
+  },
+  {
+    title: "Bapo ProMetal - Gestión de Producción",
+    desc: "Automatización del control de hornos y reportes; optimización de consultas MySQL para performance.",
+    tech: ["Laravel", "Angular", "MySQL"]
+  },
+  {
+    title: "SmartNest — Incubadora inteligente (proyecto escolar)",
+    desc: "Prototipo de incubadora inteligente que integra sensores (temperatura, aire, peso, pulso) y paneles web/móvil para monitoreo en tiempo real. Mi rol: desarrollo de la capa IoT y despliegue en la nube.",
+    tech: ["Raspberry Pi", "ESP32", "Arduino", "Python", "Angular", "AdonisJS", "AWS EC2", "Docker", "MySQL", "Sensors"]
+  },
+  {
+    title: "Brasof — Pulsera inteligente para eventos (proyecto escolar)",
+    desc: "Solución NFC para eventos que abre una app móvil con información personalizada y chat efímero; incluye paneles administrativos web y de escritorio. Mi rol: autenticación (OAuth2), API de negocio y despliegue.",
+    tech: ["NFC", "Laravel", "Vue", "Electron", "Python", "DigitalOcean", "Cloudflare", "MySQL", "OAuth2"]
+  }
+];
+import TechIcon from './TechIcon.astro';
+---
+
+<section id="projects" class="card" style="margin-top:18px">
+  <h3>Proyectos destacados</h3>
+
+  <div class="projects-grid">
+    {projects.map((p) => (
+      <article class="project">
+        <h4>{p.title}</h4>
+        <p>{p.desc}</p>
+        <div class="techs">
+          {p.tech.map((t) => (
+            <span class="tech">
+              <TechIcon name={t} />
+              <span class="tech-label">{t}</span>
+            </span>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
